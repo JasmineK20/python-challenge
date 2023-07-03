@@ -1,4 +1,4 @@
-file = open("../Resources/budget_data.csv", "r")
+file = open("PyBank/Resources/budget_data.csv", "r")
 next(file)
 number_of_lines = 0
 total_profit_loss = 0
@@ -40,3 +40,4 @@ print("max_increase_profits", max_increase_profits)
 print("date_max_increase_profits", date_max_increase_profits)
 print("max_decrease_profits", max_decrease_profits)
 print("date_max_decrease_profits", date_max_decrease_profits)
+
