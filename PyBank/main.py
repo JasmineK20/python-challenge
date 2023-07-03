@@ -33,11 +33,10 @@ for line in file:
     number_of_lines = number_of_lines + 1
 file.close()
 average_difference = total_difference / (number_of_lines - 1)
-print("number_of_lines", number_of_lines)
-print("total_profit_loss", total_profit_loss)
-print("average_difference", average_difference)
-print("max_increase_profits", max_increase_profits)
-print("date_max_increase_profits", date_max_increase_profits)
-print("max_decrease_profits", max_decrease_profits)
-print("date_max_decrease_profits", date_max_decrease_profits)
+print("Total Months: "+ str(number_of_lines))
+print("Total: $" + str(total_profit_loss))
+print("Average Change: $"+ str(round(average_difference, 2)))
+print("Greatest Increase in Profits: " + str(date_max_increase_profits) + " ($"+ str(max_increase_profits)+")")
+print("Greatest Decrease in Profits: " + str(date_max_decrease_profits) + " ($" + str(max_decrease_profits) +")")
+
 
