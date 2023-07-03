@@ -1,5 +1,5 @@
-ballots = {}
-total_votes = 0
+ballot_ID = {}
+total_number_votes = 0
 with open("PyPoll/Resources/election_data.csv", "r") as file:
 
     header = file.readline()
@@ -7,28 +7,25 @@ with open("PyPoll/Resources/election_data.csv", "r") as file:
         line = line.strip()
         line = line.split (",")
         name = line[2]
-        total_votes += 1
-        if name in ballots:
-            ballots[name] += 1
+        total_number_votes += 1
+        if name in ballot_ID:
+            ballot_ID[name] += 1
         else:
-            ballots[name] = 1
+            ballot_ID[name] = 1
 
-text_out = "Election Results\n\n"
-text_out += "-------------------------\n\n"
-text_out += f"Total Votes: {total_votes}\n\n"
-text_out += "-------------------------\n\n"
-for name,votes in ballots.items():
-    perc = votes/total_votes*100
-    text_out += f"{name}: {round(perc,3)}% ({votes})\n\n"
-text_out += "-------------------------\n\n"
-votes_list = list(ballots.values())
-candidates_list = list(ballots.keys())
+print ("Election Results\n\n")
+print("--------------------------\n")
+print (f"Total Votes: {total_number_votes}\n\n")
+print ("-------------------------\n\n")
+for name,votes in ballot_ID.items():
+    perc = votes/total_number_votes*100
+    print (f"{name}: {round(perc,3)}% ({votes})\n\n")
+print ("-------------------------\n\n")
+votes_list = list(ballot_ID.values())
+candidates_list = list(ballot_ID.keys())
 highest_vote = max(votes_list)
 v_index = votes_list.index(highest_vote)
 winner = candidates_list[v_index]
-text_out += f"Winner: {winner}\n\n"
-text_out += "-------------------------\n\n"
-print (text_out)
-output_file = open ("PyPoll/Resources/election_data.txt","w")
-output_file.write(text_out)
-output_file.close()
+print (f"Winner: {winner}\n\n")
+print ("-------------------------\n\n")
+
