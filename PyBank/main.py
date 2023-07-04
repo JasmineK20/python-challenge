@@ -1,5 +1,7 @@
+#open csv file 
 file = open("PyBank/Resources/budget_data.csv", "r")
 next(file)
+#define
 number_of_lines = 0
 total_profit_loss = 0
 total_difference = 0
@@ -32,13 +34,19 @@ for line in file:
             date_greatest_decrease_in_profits = this_date
     number_of_lines = number_of_lines + 1
 file.close()
-average_difference = total_difference / (number_of_lines - 1)
-print ("Financial Analysis")
-print ("-----------------------------\n")
-print("Total Months: "+ str(number_of_lines), "\n")
-print("Total: $" + str(total_profit_loss), "\n")
-print("Average Change: $"+ str(round(average_difference, 2)), "\n")
-print("Greatest Increase in Profits: " + str(date_greatest_increase_in_profits) + " ($"+ str(greatest_increase_in_profits)+") \n")
-print("Greatest Decrease in Profits: " + str(date_greatest_decrease_in_profits) + " ($" + str(greatest_decrease_in_profits) +")")
-print ("\n")
 
+average_difference = total_difference / (number_of_lines - 1)
+
+output_text = "Financial Analysis\n\n"
+output_text += "----------------------------\n\n"
+output_text += f"Total Months: {number_of_lines}\n\n"
+output_text += f"Total: ${total_profit_loss}\n\n"
+output_text += f"Average Change: ${round(average_difference,2)}\n\n"
+output_text += f"Greatest Increase in Profits: {date_greatest_increase_in_profits} (${greatest_increase_in_profits})\n\n"
+output_text += f"Greatest Decrease in Profits: {date_greatest_decrease_in_profits} (${greatest_decrease_in_profits})\n\n"
+
+print(output_text)
+
+output_file = open ("PyBank/analysis/budget_data.txt","w")
+output_file.write(output_text)
+output_file.close()
